@@ -1,0 +1,2 @@
+<input type="text" id="title" name="campground[title]">
+=> this is used to group content together under campground when we send the form
