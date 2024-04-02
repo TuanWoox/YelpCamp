@@ -1,2 +1,4 @@
 <input type="text" id="title" name="campground[title]">
 => this is used to group content together under campground when we send the form
+render => is used to render things in views
+redirect => is used to change the website link not the views
