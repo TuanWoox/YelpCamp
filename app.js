@@ -16,12 +16,13 @@ main().catch((e) =>{
     console.log("Error");
     console.log(e);
 })
-app.use('ejs', ejsMate);
 app.use(express.urlencoded({extended : true}));
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'))
 
 app.set('view engine', 'ejs')
+//This one right here is app.engine
+app.engine('ejs', ejsMate);
 app.set('views', path.join(__dirname,'views'));
 
 app.get('/',(req,res) =>{

@@ -2,3 +2,15 @@
 => this is used to group content together under campground when we send the form
 render => is used to render things in views
 redirect => is used to change the website link not the views
+
+SECTION 41: 
+ejs-mate is a tool helps us to create boilerplate tempalte ( a level up compare to partial)
+
+includeing partial: <%- include('../partials/navbar') %>
+
+difference between partial and ejs-mate:
+With partials, you add the whole block at once, without customizing it; layout on the other hand lets you customize the text within that boilerplate, not only add it.
+
+
+<div class="row">
+    <div class="col-md-4"> => take 1/3 of the row
