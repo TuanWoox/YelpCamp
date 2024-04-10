@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const app = express();
 const Campground = require('./models/campground');
 const methodOverride = require('method-override')
+const ejsMate = require('ejs-mate');
 
 async function main() {
   await mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp');
@@ -15,6 +16,7 @@ main().catch((e) =>{
     console.log("Error");
     console.log(e);
 })
+app.use('ejs', ejsMate);
 app.use(express.urlencoded({extended : true}));
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'))
