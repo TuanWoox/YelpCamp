@@ -6,6 +6,10 @@ redirect => is used to change the website link not the views
 SECTION 41: 
 ejs-mate is a tool helps us to create boilerplate tempalte ( a level up compare to partial)
 
+//We dont need to back away, just specify which folder the layout in!
+<% layout('layouts/boilerplate') -%>
+
+//We need to back away if that is in another folder
 includeing partial: <%- include('../partials/navbar') %>
 
 difference between partial and ejs-mate:

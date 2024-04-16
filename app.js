@@ -23,6 +23,7 @@ app.use(methodOverride('_method'))
 app.set('view engine', 'ejs')
 //This one right here is app.engine
 app.engine('ejs', ejsMate);
+
 app.set('views', path.join(__dirname,'views'));
 
 app.get('/',(req,res) =>{
@@ -57,18 +58,10 @@ app.delete('/campgrounds/:id',async(req,res) =>{
     res.redirect('/campgrounds');
 })
 
-
-
-
-
-
-
 app.get('/campgrounds/:id', async (req,res) =>{
     const campground =await Campground.findById(req.params.id);
     res.render('campgrounds/show', {campground})
 })
-
-
 
 app.listen(3000, ()=> {
     console.log('Serving on port 3000');
