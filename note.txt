@@ -5,16 +5,32 @@ redirect => is used to change the website link not the views
 
 SECTION 41: 
 ejs-mate is a tool helps us to create boilerplate tempalte ( a level up compare to partial)
-
 //We dont need to back away, just specify which folder the layout in!
 <% layout('layouts/boilerplate') -%>
-
 //We need to back away if that is in another folder
 includeing partial: <%- include('../partials/navbar') %>
-
 difference between partial and ejs-mate:
 With partials, you add the whole block at once, without customizing it; layout on the other hand lets you customize the text within that boilerplate, not only add it.
-
-
 <div class="row">
     <div class="col-md-4"> => take 1/3 of the row
+
+
+SECTION 43:
+<form class="row g-3 needs-validation" novalidate>
+=>For custom Bootstrap form validation messages, you’ll need to add the novalidate boolean attribute to your <form>. This disables the browser default feedback tooltips, but still provides access to the form validation APIs in JavaScript
+Adding: Utils with 2 js file is CatchAsyncs ( helping us to catch async error) and ExpressError (our custom defining error class)
+Adding: Error template
+Adding: validateSchema ( this is a joi schema for detecting error pattern in javascript)
+The app.get('*') doesnt conflict with the app.use to handle error! Because when we throw an error =>
+it will look for app.use with 4 parameter!!!
+JOI : a JavaScript validating tool
+//Explain for this code: First we pass in a object ( that is request.body) => in that request.body
+it must have campground ( is also a object)!
+const campgroundSchema =Joi.object({
+        campground: Joi.object({
+            title: Joi.string().require(),
+            price: Joi.number().required().min(0),
+            location: Joi.string().required(),
+            description: Joi.string().required()
+        }).require()
+    })
