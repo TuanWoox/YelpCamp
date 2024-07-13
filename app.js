@@ -24,7 +24,7 @@ app.use(express.urlencoded({extended : true}));
 app.use(methodOverride('_method'))
 
 app.set('view engine', 'ejs')
-//This one right here is app.engine
+//This one right here is app.engine used for layouts, partials, block
 app.engine('ejs', ejsMate);
 
 app.set('views', path.join(__dirname,'views'));
