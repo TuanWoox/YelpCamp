@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-
+//Used for validate the campground
 module.exports.campgroundSchema = Joi.object({
     campground: Joi.object({
         title: Joi.string().required(),
