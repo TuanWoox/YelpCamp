@@ -34,3 +34,6 @@ const campgroundSchema =Joi.object({
             description: Joi.string().required()
         }).require()
     })
+
+THE IMAGE EXPLAINATION:
+-We dont get new images for the index show page because the cache of the browser and the link block us from getting new image everytime!
