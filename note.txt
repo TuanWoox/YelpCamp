@@ -37,3 +37,12 @@ const campgroundSchema =Joi.object({
 
 THE IMAGE EXPLAINATION:
 -We dont get new images for the index show page because the cache of the browser and the link block us from getting new image everytime!
+
+SECTION 46:
+module.exports.reviewSchema = Joi.object({
+    review: Joi.object({
+        rating: Joi.number().required().min(1).max(5),
+        body: Joi.string().required()
+    }).required()
+})
+If we dont have .required() the whole object => the validation will still pass if the review object is missing
