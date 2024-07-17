@@ -46,3 +46,19 @@ module.exports.reviewSchema = Joi.object({
     }).required()
 })
 If we dont have .required() the whole object => the validation will still pass if the review object is missing
+
+
+SECTION49:
+express router would like to keep param seperately, like the param in the prefix 
+wont be in the route file => to have that => we need to specify an option
+mergeParams : true
+The purpose of serving static file:
+These things are to be made available publicly because the browser should be able to access it and process in client side. so for this and images, css, js and docs as well, we use public fonder.
+
+or putting it simple, those static (constant) files which are accessed by the browser (not server) are kept in the public directory.
+
+Note If both expires and maxAge are set in the options, then the last one defined in the object is what is used.
+Note The expires option should not be set directly; instead only use the maxAge option.
+
+The connect-flash middleware is used to store flash messages in the session, which are then accessible in the req.flash object. When you configure connect-flash in your main app.js file and add it to your Express app, it makes the flash functionality available throughout your application, including in your routers.
+By setting up express-session and connect-flash in app.js, every request passing through your application has access to req.flash. This includes requests handled by routers defined in separate files.
