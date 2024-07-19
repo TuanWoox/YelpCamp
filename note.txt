@@ -62,3 +62,7 @@ Note The expires option should not be set directly; instead only use the maxAge 
 
 The connect-flash middleware is used to store flash messages in the session, which are then accessible in the req.flash object. When you configure connect-flash in your main app.js file and add it to your Express app, it makes the flash functionality available throughout your application, including in your routers.
 By setting up express-session and connect-flash in app.js, every request passing through your application has access to req.flash. This includes requests handled by routers defined in separate files.
+
+Flash is depended upon sessions, because it stores information in session. => 
+
+Yes, you need to install and use express-session alongside connect-flash in a Node.js application.
