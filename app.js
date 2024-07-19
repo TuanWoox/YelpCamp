@@ -8,10 +8,13 @@ const ejsMate = require('ejs-mate');
 const ExpressError = require('./utils/ExpressError');
 const session = require('express-session');
 const flash = require('connect-flash');
-
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
+const User = require('./models/user');
 //Routes
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
+const userRoutes = require('./routes/users');
 const exp = require('constants');
 
 async function main() {
@@ -51,13 +54,27 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 //This is for the flash pop up
 app.use(flash());
+//passport.ini => install passport, passport.session => persistant login, must place after session
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+//How do we store and unstore a user in a session
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 //This is use for catch flash message
 app.use((req,res,next) => {
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
+    res.locals.currentUser = req.user;
     next();
 })
+app.get('/fakeUser', async(req,res) => {
+    const user = new User({email:'z1venttt@gmail.com', username:'woo'});
+    const newUser = await User.register(user,'z');
+    res.send(newUser);
+})
 //Routers
+app.use('/',userRoutes);
 app.use('/campgrounds',campgroundRoutes);
 app.use('/campgrounds/:id/reviews',reviewRoutes);
 

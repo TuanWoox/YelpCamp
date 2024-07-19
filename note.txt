@@ -66,3 +66,13 @@ By setting up express-session and connect-flash in app.js, every request passing
 Flash is depended upon sessions, because it stores information in session. => 
 
 Yes, you need to install and use express-session alongside connect-flash in a Node.js application.
+
+SECTION51:
+-Passport is a middleware for Node.js that provides a simple 
+and extensible authentication framework. It supports various authentication strategies, allowing for a wide range of use cases, from simple local logins to complex OAuth integrations.
+-Passport-local is one of the strategies available for Passport. It is designed for local authentication using a username and password.
+-Passport-local-mongoose is a Mongoose plugin that simplifies the implementation of Passport-local authentication.
+Passport and passport-local and passport-local-mongoose combine all together 
+
+In the newest version of passport, once you logged in => the session is cleared => we use a middleware and local.res to 
+return to the page they are using before!
