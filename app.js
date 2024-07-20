@@ -57,7 +57,7 @@ app.use(flash());
 //passport.ini => install passport, passport.session => persistant login, must place after session
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
+passport.use(new LocalStrategy(User.createStrategy()));
 //How do we store and unstore a user in a session
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
@@ -68,11 +68,7 @@ app.use((req,res,next) => {
     res.locals.currentUser = req.user;
     next();
 })
-app.get('/fakeUser', async(req,res) => {
-    const user = new User({email:'z1venttt@gmail.com', username:'woo'});
-    const newUser = await User.register(user,'z');
-    res.send(newUser);
-})
+
 //Routers
 app.use('/',userRoutes);
 app.use('/campgrounds',campgroundRoutes);
