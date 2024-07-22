@@ -76,3 +76,20 @@ Passport and passport-local and passport-local-mongoose combine all together
 
 In the newest version of passport, once you logged in => the session is cleared => we use a middleware and local.res to 
 return to the page they are using before!
+
+
+
+SECTION52:
+  const campground =await Campground.findById(req.params.id).populate({
+        path: 'reviews',
+        populate: {
+            path: 'author'
+        }
+    }).populate('author');
+=> This used to nest to populate the object we populate!!!
+So at this section we are basically done with our app hehe => follow this patterns for practicing more!
+
+SECTION 53:
+New patterns: Controllers
+=> Straight point is that we move all the controller into separate file into function!!!
+Controllers is the hearts of our application!

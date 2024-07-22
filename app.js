@@ -57,7 +57,7 @@ app.use(flash());
 //passport.ini => install passport, passport.session => persistant login, must place after session
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new LocalStrategy(User.createStrategy()));
+passport.use(new LocalStrategy(User.authenticate()));
 //How do we store and unstore a user in a session
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
