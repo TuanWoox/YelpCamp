@@ -28,7 +28,7 @@
     </div>
     
     <div class="col-6">
-        <% if(currentUser) { %>
+        <% if(currentUser && !campground.author.equals(currentUser._id)) { %>
         <h2>Leave a review</h2>
         <form action="/campgrounds/<%=campground._id%>/reviews" class="mb-3 validated-form" method="POST" novalidate>
             <div class="mb-3">
