@@ -5,10 +5,13 @@ const passport = require('passport');
 const { storeReturnTo } = require('../middleware');
 const userControl = require('../controllers/users');
 
-router.get('/register',userControl.renderRegisterForm)
-router.post('/register', catchAsync(userControl.createUser));
-router.get('/login',userControl.renderLoginForm)
-//Automatically use User for us! 
-router.post('/login', storeReturnTo,passport.authenticate('local',{failureFlash: true, failureRedirect:'/login'}),userControl.loginUser)
+router.route('/register')
+.get(userControl.renderRegisterForm)
+.post(catchAsync(userControl.createUser))
+
+router.route('/login')
+.get(userControl.renderLoginForm)
+.post(storeReturnTo,passport.authenticate('local',{failureFlash: true, failureRedirect:'/login'}),userControl.loginUser)
+
 router.get('/logout',userControl.logoutUser)
 module.exports = router;

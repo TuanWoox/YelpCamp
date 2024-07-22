@@ -93,3 +93,11 @@ SECTION 53:
 New patterns: Controllers
 => Straight point is that we move all the controller into separate file into function!!!
 Controllers is the hearts of our application!
+
+router.route('/:id')
+.get(catchAsync(campgControl.showCampground))
+.put(isLoggedIn,isAuthor,validateCampground,catchAsync(campgControl.updateCampground))
+.delete(isLoggedIn,isAuthor,catchAsync(campgControl.deleteCampground))
+this router.route helps us to group things that is the same url but different verb!
+
+starability allows us to use star for reviewing!!!
