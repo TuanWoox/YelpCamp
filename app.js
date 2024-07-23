@@ -1,3 +1,9 @@
+if(process.env.NODE_ENV !== "production")
+{
+    require('dotenv').config();
+    //If we running application in dev mod => require .env and add in process so process will have env
+    // and we can access it process.env.VARIABLENAME!
+}
 //Npm packages
 const express = require('express')
 const path = require('path');
@@ -15,7 +21,6 @@ const User = require('./models/user');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 const userRoutes = require('./routes/users');
-const exp = require('constants');
 
 async function main() {
   await mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp');

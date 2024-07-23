@@ -101,3 +101,18 @@ router.route('/:id')
 this router.route helps us to group things that is the same url but different verb!
 
 starability allows us to use star for reviewing!!!
+
+SECTION54:
+It is not a good idea to store image in database => we store in some app like Cloudinary and AWS 
+=> It will send back url and the database will store that url for us!
+The multer middleware: this middleware helps us to parse the multipart/form-data
+becasue Express.js itself does not provide built-in support for parsing multipart/form-data directly.!
+Multer adds a body object and a file or files object to the request object. The body object contains the values of the text fields of the form, the file or files object contains the files uploaded via the form.
+https://github.com/expressjs/multer
+DONT LET NOBODY SEE THE API KEY AND THE API SECRET!!! THEY COULD USE IT AND MESS UP 
+An .env file is used to store environment variables in key-value pairs. These variables are often configuration settings that your application needs to run, such as database credentials, API keys, or other sensitive information that you don't want to hardcode into your application's source code
+https://www.npmjs.com/package/dotenv
+multer-storage-cloudinary helps us to store the images! => install cloudinary and multer-storage-cloudinary
+When returning an object literal with an implicit return, you need to wrap the object in parentheses to avoid syntax errors.
+Should keep in mind that we need to limit the amount of images!!!
+In MongoDB with Mongoose, a virtual is a property that you define in your Mongoose schema but is not stored in the database. Instead, it's a property that's computed dynamically based on other fields in the document.
