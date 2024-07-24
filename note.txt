@@ -116,3 +116,8 @@ multer-storage-cloudinary helps us to store the images! => install cloudinary an
 When returning an object literal with an implicit return, you need to wrap the object in parentheses to avoid syntax errors.
 Should keep in mind that we need to limit the amount of images!!!
 In MongoDB with Mongoose, a virtual is a property that you define in your Mongoose schema but is not stored in the database. Instead, it's a property that's computed dynamically based on other fields in the document.
+all package:
+multer: needs for parsing multimedia
+cloudinary: needs for config and have some API
+multer-storage-cloudinary : needs for accessing and upload images to cloudinary
+We need to put multer first otherwise req.body wont be parse! but in that way multer will upload image even tho the campground is invalid!

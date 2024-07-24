@@ -9,7 +9,6 @@ const upload = multer({ storage })
 
 router.route('/')
 .get(catchAsync(campgControl.index))
-//We need to put multer first otherwise req.body wont be parse! but in that way multer will upload image even tho the campground is invalid!
 .post(isLoggedIn,upload.array('images'),validateCampground,catchAsync(campgControl.createCampground));
 
 //New to be put ahead of route :/id => because it will thought new is a id
