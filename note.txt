@@ -121,3 +121,28 @@ multer: needs for parsing multimedia
 cloudinary: needs for config and have some API
 multer-storage-cloudinary : needs for accessing and upload images to cloudinary
 We need to put multer first otherwise req.body wont be parse! but in that way multer will upload image even tho the campground is invalid!
+
+
+SECTION55:
+Geocoding is the process of converting addresses (like "1600 Amphitheatre Parkway, Mountain View,
+CA") into geographic coordinates (like latitude 37.423021 and longitude -122.083739), which can be 
+used to place markers on a map, analyze spatial data, or perform various geographic information
+system (GIS) functions. It involves parsing and interpreting address data to match it to geographic coordinates, 
+making it a crucial component in location-based services, mapping applications, and spatial analysis
+we have mapbox nodejs package!
+const geoData = await geoCoder.forwardGeocode({
+        query: req.body.campground.location,
+        limit:1
+    }).send()
+    res.send(geoData.body.features[0].geometry.coordinates);
+[
+    109.24946,
+    13.550355
+] => longitude and latitude
+we need to follow the GeoJson patterns => because mongo have some operations for it and later we could use that!
+So the javascripts wont be paste like html and other thing so it can look for ejs 
+but we can create constant in a script in it => it will link with the js file 
+<script>
+    const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+</script>
+<script src="/javascripts/showPageMap.js"></script>

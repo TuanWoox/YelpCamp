@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const Review = require('./review');
+const { required } = require('joi');
 const ImageSchema = new Schema({
     url: String,
     filename: String
@@ -11,6 +12,17 @@ ImageSchema.virtual('thumbnail').get(function() {
 const CampgroundSchema = Schema({
     title: String,
     images: [ImageSchema],
+    geometry: {
+        type: {
+            type: String,
+            enum: ['Point'],
+            required: true
+        },
+        coordinates: {
+            type: [Number],
+            required: true
+        }
+    },
     price: Number,
     description: String,
     location: String,
