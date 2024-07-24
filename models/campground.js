@@ -39,7 +39,7 @@ const CampgroundSchema = Schema({
         }
     ]
 },opts);
-//THIS WILL CREATE properties: popUpMarkup for us
+//THIS WILL CREATE properties: popUpMarkup for us when Json stringtify!
 CampgroundSchema.virtual('properties.popUpMarkup').get(function() {
     return `
     <strong><a href="/campgrounds/${this._id}">${this.title}</a><strong>

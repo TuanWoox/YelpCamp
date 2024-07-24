@@ -149,3 +149,48 @@ but we can create constant in a script in it => it will link with the js file
 
 SECTION56:
 https://docs.mapbox.com/mapbox-gl-js/example/cluster/
+we need to also await for the async function!
+mapboxgl.accessToken = mapToken;
+const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v12', // style URL
+        center: campground.geometry.coordinates, // starting position [lng, lat]
+        zoom: 12, // starting zoom
+});
+
+new mapboxgl.Marker()
+    .setLngLat(campground.geometry.coordinates)
+    .setPopup(
+        new mapboxgl.Popup({offset:25})
+        .setHTML(
+            `<h3>${campground.title}</h3>
+            <p>${campground.location}</p>
+            `
+        )
+    )
+    .addTo(map);
+
+if we want to add different maps => we need to specified different container
+
+When we use cluster map in mapbox
+=>
+"features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ak16994521",
+                "mag": 2.3,
+                "time": 1507425650893,
+                "felt": null,
+                "tsunami": 0
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -151.5129,
+                    63.1016,
+                    0
+                ]
+            }
+        },
+mapbox will accept a properties named features => that have a list of object which have geometry and properties is other thing!

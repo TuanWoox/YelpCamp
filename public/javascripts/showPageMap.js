@@ -17,3 +17,4 @@ new mapboxgl.Marker()
         )
     )
     .addTo(map);
+
