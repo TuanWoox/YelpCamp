@@ -146,3 +146,6 @@ but we can create constant in a script in it => it will link with the js file
     const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
 </script>
 <script src="/javascripts/showPageMap.js"></script>
+
+SECTION56:
+https://docs.mapbox.com/mapbox-gl-js/example/cluster/
