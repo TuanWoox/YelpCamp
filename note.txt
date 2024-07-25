@@ -194,3 +194,5 @@ When we use cluster map in mapbox
             }
         },
 mapbox will accept a properties named features => that have a list of object which have geometry and properties is other thing!
+
+SECTION57:
