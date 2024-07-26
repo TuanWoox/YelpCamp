@@ -1,9 +1,9 @@
-if(process.env.NODE_ENV !== "production")
-{
-    require('dotenv').config();
-    //If we running application in dev mod => require .env and add in process so process will have env
-    // and we can access it process.env.VARIABLENAME!
-}
+// if(process.env.NODE_ENV !== "production")
+// {
+//     require('dotenv').config();
+//     //If we running application in dev mod => require .env and add in process so process will have env
+//     // and we can access it process.env.VARIABLENAME!
+// }
 //Npm packages
 const express = require('express')
 const path = require('path');
@@ -20,7 +20,7 @@ const User = require('./models/user');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
 const MongoStore = require('connect-mongo');
-const dbUrl = 'mongodb://127.0.0.1:27017/yelp-camp'
+const dbUrl = DB_URL;
 //Routes
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
