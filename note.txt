@@ -208,7 +208,7 @@ https://en.wikipedia.org/wiki/Cross-site_scripting
 https://xss-game.appspot.com/
 Imbedding script code into website!
 Santize HTML: We have express-validator do it for us! and also we can write on top of joi with the help of sanitize html
-Helmet:
+Helmet: Helmet helps secure Express apps by setting HTTP response headers.
 https://helmetjs.github.io/
 if we dont turn off the contentSecurityPolicy => the external source will break
 there are 2 ways of solving this:
@@ -258,3 +258,9 @@ app.use(
 );
 and at the same time add crossOrigin = 'anonymouse' to img using src ( but helmet newest version doesnot need to)!
 
+SECTION59:
+Mongo Atlas:
+Connect-Mongo: MongoDB session store for Connect and Express written in Typescript
+https://www.npmjs.com/package/connect-mongo
+MongoStore secret: Used to encrypt/decrypt session data stored in the MongoDB database.
+Session configuration secret: Used to sign the session ID cookie to ensure its integrity.
